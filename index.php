@@ -4,14 +4,11 @@
  *  Author: Daniel Nemergut
  *  File: index.php
  *
- *  Comment
+ *  This is the main page that will load the main controller.
  */
-?>
-<html>
-  <head>
-  </head>
-  <body>
-    <p>Working!</p>
-  </body>
-</html>
 
+require_once('controllers/MainController.php');
+
+$mainController = new MainController();
+
+$mainController->start('init');
