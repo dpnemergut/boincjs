@@ -7,24 +7,11 @@
  *  This model inserts results into the accepted table
  */
 
-class AcceptedModel {
-
-    private $dbHost;
-    private $dbName;
-    private $tableName;
-    private $dbUser;
-    private $dbPass;
-
-    private $dbh;
+class AcceptedModel extends AbstractModel {
 
     function __construct() {
-        $this->dbHost = 'localhost';
-        $this->dbName = 'boincjs_db';
         $this->tableName = 'accepted';
-        $this->dbUser = 'root';
-        $this->dbPass = 'root';
-
-        $this->dbh = new PDO('mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName, $this->dbUser, $this->dbPass);
+        parent::__construct();
     }
 
 }

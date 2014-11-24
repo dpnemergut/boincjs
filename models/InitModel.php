@@ -7,26 +7,13 @@
  *  This model fetches data from the raw table.
  */
 
-class InitModel {
-
-    protected $dbHost;
-    protected $dbName;
-    protected $tableName;
-    protected $dbUser;
-    protected $dbPass;
-
-    protected $dbh;
+class InitModel extends AbstractModel {
 
     protected $threshold = 5;
 
     function __construct() {
-        $this->dbHost = 'localhost';
-        $this->dbName = 'boincjs_db';
         $this->tableName = 'raw';
-        $this->dbUser = 'root';
-        $this->dbPass = 'root';
-
-        $this->dbh = new PDO('mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName, $this->dbUser, $this->dbPass);
+        parent::__construct();
     }
 
     /**

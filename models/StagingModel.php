@@ -7,24 +7,11 @@
  *  This model inserts data into and fetches data from the staging table
  */
 
-class StagingModel {
-
-    private $dbHost;
-    private $dbName;
-    private $tableName;
-    private $dbUser;
-    private $dbPass;
-
-    private $dbh;
+class StagingModel extends AbstractModel {
 
     function __construct() {
-        $this->dbHost = 'localhost';
-        $this->dbName = 'boincjs_db';
         $this->tableName = 'staging';
-        $this->dbUser = 'root';
-        $this->dbPass = 'root';
-
-        $this->dbh = new PDO('mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName, $this->dbUser, $this->dbPass);
+        parent::__construct();
     }
 
     /**
@@ -33,7 +20,7 @@ class StagingModel {
      *  It then calls the review controller if the distributed count is over the threshold.
      */
     public function enterData($rawId, $stagingData) {
-        $sth = $this->dbh->prepare('INSERT INTO ' $this->tableName . ' (raw_data) VALUES(' . $stagingData . ')');
+        $sth = $this->dbh->prepare('INSERT INTO ' . $this->tableName . ' (raw_data) VALUES(' . $stagingData . ')');
         $sth->execute();
 
         require_once('models/InitModel.php');
@@ -53,7 +40,7 @@ class StagingModel {
      *  Loads all the staging data that has been calculated for a raw ID
      */
     public function loadAllStagingDataForId($rawId) {
-        $sth = $this->dbh->prepare('SELECT * FROM ' $this->tableName . ' WHERE raw_id = ' . $rawId);
+        $sth = $this->dbh->prepare('SELECT * FROM ' . $this->tableName . ' WHERE raw_id = ' . $rawId);
         $sth->execute();
         $stagingData = $sth->fetchAll();
 
