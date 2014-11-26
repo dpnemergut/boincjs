@@ -4,7 +4,7 @@
  *  Author: Daniel Nemergut
  *  File: models/RejectedModel.php
  *
- *  This model inserts results into the rejected table
+ *  This model inserts results into the rejected table.
  */
 
 class RejectedModel extends AbstractModel {

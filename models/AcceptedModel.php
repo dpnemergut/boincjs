@@ -4,7 +4,7 @@
  *  Author: Daniel Nemergut
  *  File: models/AcceptedModel.php
  *
- *  This model inserts results into the accepted table
+ *  This model inserts results into the accepted table.
  */
 
 class AcceptedModel extends AbstractModel {
