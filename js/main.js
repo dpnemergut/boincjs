@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    function compute(dataToCompute) {
+        // Needs to be implemented by project
+        var computedData = dataToCompute;
+        return computedData;
+    }
+
     function stageData(dataToStage) {
         var boinc = "http://boincjs.dev?jsoncallback=?";
         $.getJSON(boinc, {
@@ -7,6 +13,7 @@ $(document).ready(function() {
             format: "json"
         }).done(function(data) {
                 console.log(data);
+                compute(data);
                 stageData(data);
             });
     }
@@ -18,7 +25,7 @@ $(document).ready(function() {
             format: "json"
         }).done(function(data) {
                 console.log(data);
-                // Compute
+                compute(data);
                 stageData(data);
             });
     })();
