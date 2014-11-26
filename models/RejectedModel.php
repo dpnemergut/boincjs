@@ -14,4 +14,15 @@ class RejectedModel extends AbstractModel {
         parent::__construct();
     }
 
+    /**
+     * Inserts rejected data into the rejected table.
+     *
+     * @param $rawId
+     * @param $data
+     */
+    public function process($rawId, $data) {
+        $sth = $this->dbh->prepare('INSERT INTO ' . $this->tableName . ' (raw_id, rejected_data) VALUES(' . $rawId . ', ' . $data . ')');
+        $sth->execute();
+    }
+
 }

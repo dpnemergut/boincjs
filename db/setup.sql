@@ -34,6 +34,7 @@ SELECT '<Creating table accepted...>' AS ' ';
 CREATE TABLE accepted (
     accepted_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     raw_id int NOT NULL,
+    accepted_data text NOT NULL DEFAULT '',
     FOREIGN KEY (raw_id) REFERENCES raw(raw_id)
 );
 
@@ -41,6 +42,7 @@ SELECT '<Creating table rejected...>' AS ' ';
 CREATE TABLE rejected (
     rejected_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     raw_id int NOT NULL,
+    rejected_data text NOT NULL DEFAULT '',
     FOREIGN KEY (raw_id) REFERENCES raw(raw_id)
 );
 

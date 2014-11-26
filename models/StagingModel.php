@@ -37,7 +37,7 @@ class StagingModel extends AbstractModel {
             require_once('controllers/ReviewController.php');
             $reviewController = new ReviewController();
 
-            $reviewController->review($rawId);
+            $reviewController->review($this, $rawId);
         }
 
         return $initModel->fetchNewData();

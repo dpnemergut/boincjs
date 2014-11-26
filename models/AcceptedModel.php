@@ -14,4 +14,15 @@ class AcceptedModel extends AbstractModel {
         parent::__construct();
     }
 
+    /**
+     * Inserts accepted data into the accepted table.
+     *
+     * @param $rawId
+     * @param $data
+     */
+    public function process($rawId, $data) {
+        $sth = $this->dbh->prepare('INSERT INTO ' . $this->tableName . ' (raw_id, accepted_data) VALUES(' . $rawId . ', ' . $data . ')');
+        $sth->execute();
+    }
+
 }
